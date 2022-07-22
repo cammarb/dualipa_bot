@@ -15,7 +15,7 @@ def create_bot():
 
     @bot.command(name='dua')
     async def photos(ctx):
-        await ctx.send(random.choice(search_image_links()))
+        await ctx.send(search_image_links())
 
     bot.run(TOKEN)
 
