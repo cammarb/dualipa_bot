@@ -6,8 +6,13 @@ import random
 # print(json_dict)
 arraySize = 10
 
+def generateIndex():
+    i = random.randrange(1, 11)
+    return i * 10 + 1
+
 def search_image_links():
-    link = f"https://customsearch.googleapis.com/customsearch/v1?cx={CX}&imgType=photo&{arraySize}&q=dua%20lipa&searchType=image&start=1&prettyPrint=true&key={API}"
+    start = generateIndex()
+    link = f"https://customsearch.googleapis.com/customsearch/v1?cx={CX}&imgType=photo&{arraySize}&q=dua%20lipa&searchType=image&start={start}&prettyPrint=true&key={API}"
 
     response = requests.get(link)
     json_dict = response.json()
