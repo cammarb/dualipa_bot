@@ -25,4 +25,3 @@ def search_image_links():
     pic = random.choice(links_arrays)
 
     return pic
-
