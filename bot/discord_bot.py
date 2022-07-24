@@ -1,5 +1,5 @@
-from config import *
-from google_search import search_image_links
+from .config import *
+from .google_search import search_image_links
 
 import random
 
@@ -11,12 +11,9 @@ def create_bot():
     bot = commands.Bot(command_prefix='!')
     client = discord.Client()
 
-
-
     @bot.command(name='dua')
     async def photos(ctx):
         await ctx.send(search_image_links())
 
+    print("running...")
     bot.run(TOKEN)
-
-create_bot()

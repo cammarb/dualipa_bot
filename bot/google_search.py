@@ -1,6 +1,6 @@
 from os import set_inheritable
 import requests
-from config import CX, API
+from .config import CX, API
 import random
 
 # print(json_dict)
