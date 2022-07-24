@@ -21,7 +21,7 @@ def create_bot():
         print("Dua Lipa Bot is ready.")
 
     @bot.command(name='dua')
-    async def photos(ctx, *, extra:str):
+    async def photos(ctx, *, extra=''):
         await ctx.send(search_image_links(extra))
 
     bot.run(TOKEN)
