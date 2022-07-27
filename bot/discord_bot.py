@@ -17,9 +17,13 @@ def create_bot():
         await bot.change_presence(activity=discord.Streaming(name="Levitating", url="https://www.youtube.com/watch?v=TUVcZfQe-Kw"))
         print("Dua Lipa Bot is ready.")
 
-    @bot.command(name='dua')
+    @bot.command(name='dua random')
     async def dua(ctx, extra):
         await ctx.send(search_image_links(extra))
+    
+    @bot.command(name='dua bikini')
+    async def dua(ctx, extra):
+        await ctx.send(search_image_links("bikini"))
 
     # We can call the command by its name as an decorator
     @dua.error
@@ -27,8 +31,9 @@ def create_bot():
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send("Oh no, something happened. Please enter the command again.", file=discord.File('bot/img/dua_troste.png'))
 
-    @bot.slash_command(name='test', description='this is a test', guild = discord.Object(GUILD))
-    async def test(interaction: discord.intera):
-        await interaction.response.send_message('hello, this is a test')
+    # TODO: slash commands
+    # @bot.slash_command(name='test', description='this is a test', guild = discord.Object(GUILD))
+    # async def test(interaction: discord.intera):
+    #     await interaction.response.send_message('hello, this is a test')
 
     bot.run(TOKEN)

@@ -1,4 +1,3 @@
-from os import set_inheritable
 import requests
 from .config import CX, API
 import random
@@ -12,7 +11,10 @@ def generateIndex():
 
 def search_image_links(extra):
     start = generateIndex()
-    link = f"https://customsearch.googleapis.com/customsearch/v1?cx={CX}&imgType=photo&{arraySize}&q=dua%20lipa%20{extra}&searchType=image&start={start}&prettyPrint=true&key={API}"
+    if extra != None:
+        link = f"https://customsearch.googleapis.com/customsearch/v1?cx={CX}&imgType=photo&{arraySize}&q=dua%20lipa%20{extra}&searchType=image&start={start}&prettyPrint=true&key={API}"
+    else:
+        link = f"https://customsearch.googleapis.com/customsearch/v1?cx={CX}&imgType=photo&{arraySize}&q=dua%20lipa%20&searchType=image&start={start}&prettyPrint=true&key={API}"
 
     response = requests.get(link)
     json_dict = response.json()
