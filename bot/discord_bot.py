@@ -17,12 +17,12 @@ def create_bot():
         await bot.change_presence(activity=discord.Streaming(name="Levitating", url="https://www.youtube.com/watch?v=TUVcZfQe-Kw"))
         print("Dua Lipa Bot is ready.")
 
-    @bot.command(name='dua random')
-    async def dua(ctx, extra):
-        await ctx.send(search_image_links(extra))
+    @bot.command(name='random')
+    async def dua(ctx):
+        await ctx.send(search_image_links(''))
     
-    @bot.command(name='dua bikini')
-    async def dua(ctx, extra):
+    @bot.command(name='bikini')
+    async def dua(ctx):
         await ctx.send(search_image_links("bikini"))
 
     # We can call the command by its name as an decorator
