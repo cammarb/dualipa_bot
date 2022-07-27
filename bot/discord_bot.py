@@ -1,8 +1,5 @@
-from os import name
 from .config import *
 from .google_search import search_image_links
-
-import random
 
 import discord
 from discord.ext import commands
@@ -29,5 +26,9 @@ def create_bot():
     async def dua_error(ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send("Oh no, something happened. Please enter the command again.", file=discord.File('bot/img/dua_troste.png'))
+
+    @bot.slash_command(name='test', description='this is a test', guild = discord.Object(GUILD))
+    async def test(interaction: discord.intera):
+        await interaction.response.send_message('hello, this is a test')
 
     bot.run(TOKEN)
