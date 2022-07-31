@@ -31,14 +31,14 @@ def search_image_links(extra):
 
     return pic
 
-class Dua(commands.Cog):
+class DuaImages(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
 
     @commands.Cog.listener()
     async def on_ready(self):
-        print('Dua cog loaded.')
+        print('Dua Images cog loaded.')
     
     @commands.command()
     @commands.has_permissions(administrator=True)
@@ -63,4 +63,4 @@ class Dua(commands.Cog):
     #         await ctx.send("Oh no, something happened. Please enter the command again.", file=discord.File('bot/img/dua_troste.png'))
 
 async def setup(bot: commands.Bot):
-    await bot.add_cog(Dua(bot))
+    await bot.add_cog(DuaImages(bot))
